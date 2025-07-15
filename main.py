@@ -7,9 +7,9 @@ from scanTables import getBattingDF
 def main():
     url = "https://www.baseball-reference.com/teams/TOR/2025.shtml"
     battingDF = getBattingDF(url)
-
-    for r in battingDF.iterrows():
-        print(r)
+    # print(battingDF)
+    # for r in battingDF.iterrows():
+    #     print(r)
 
     # print(getPitchingDF(url))
     # print(getFieldingDF(url))
