@@ -1,11 +1,12 @@
 import cloudscraper
 import pandas as pd
 from bs4 import BeautifulSoup
+import time
 
 
 def getBattingDF(url):
     try:
-        scraper = cloudscraper.create_scraper()
+        scraper = cloudscraper.create_scraper(browser={'custom': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
         response = scraper.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -16,7 +17,7 @@ def getBattingDF(url):
             print(f"⚠️ No batting table found at {url}")
             with open('debug_output.html', 'w') as f:
                 f.write(response.text)
-            print("⚠️ Saved HTML to debug_output.html")
+            print(" - Saved HTML to debug_output.html")
             return pd.DataFrame()
 
         print("\n✅ Scraping result:")
@@ -59,6 +60,7 @@ def getBattingDF(url):
                 })
 
         df = pd.DataFrame(rows)
+        time.sleep(5)
         return df
 
     except Exception as e:
