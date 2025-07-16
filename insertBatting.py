@@ -34,7 +34,7 @@ def getInsertBattingString(urlFrame, team, year):
     url = urlFrame + team + '/' + year + '.shtml'
     
     yearInsertList = []
-    while int(year) >= 2015:
+    while int(year) >= 2025:
         yearInsertList.append(getInsertOneYear(urlFrame, team, year))
         year = str(int(year)-1)
     
