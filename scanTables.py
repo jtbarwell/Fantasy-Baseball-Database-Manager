@@ -12,7 +12,9 @@ def getBattingDF(url):
 
         roster_table = soup.find('table', {'id': 'players_standard_batting'})
         rows = []
-
+        if roster_table is None:
+            print(f"⚠️ No batting table found at {url}")
+            return pd.DataFrame()
 
         print("\n✅ Scraping result:")
         
@@ -72,6 +74,9 @@ def getPitchingDF(url):
 
         roster_table = soup.find('table', {'id': 'players_standard_pitching'})
         rows = []
+        if roster_table is None:
+            print(f"⚠️ No pitching table found at {url}")
+            return pd.DataFrame()
 
 
         print("\n✅ Scraping result:")
@@ -136,6 +141,9 @@ def getFieldingDF(url):
 
         roster_table = soup.find('table', {'id': 'players_standard_fielding'})
         rows = []
+        if roster_table is None:
+            print(f"⚠️ No fielding table found at {url}")
+            return pd.DataFrame()
 
 
         print("\n✅ Scraping result:")
