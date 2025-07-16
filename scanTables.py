@@ -14,6 +14,9 @@ def getBattingDF(url):
         rows = []
         if roster_table is None:
             print(f"⚠️ No batting table found at {url}")
+            with open('debug_output.html', 'w') as f:
+                f.write(response.text)
+            print("⚠️ Saved HTML to debug_output.html")
             return pd.DataFrame()
 
         print("\n✅ Scraping result:")
