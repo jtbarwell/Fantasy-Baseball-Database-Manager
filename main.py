@@ -7,8 +7,8 @@ from scanTables import getBattingDF
 
 def main():
     urlFrame = "https://www.baseball-reference.com/teams/"
-    # print(getInsertBattingString(urlFrame, 'ARI', '2025'))
-    print(getBattingDF("https://www.baseball-reference.com/teams/TOR/2025.shtml"))
+    print(getInsertBattingString(urlFrame, 'TOR', '2025'))
+    # print(getBattingDF("https://www.baseball-reference.com/teams/TOR/2025.shtml"))
 
 
 if __name__ == "__main__":
