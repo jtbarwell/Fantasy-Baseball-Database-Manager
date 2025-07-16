@@ -4,6 +4,9 @@ drop table if exists BattingStats;
 
 
 create table BattingStats (
+    StatsID int identity(1, 1),
+    Year    int,
+    Team    nvarchar(30),
     Player  nvarchar(150),
     Age     int,
     Pos     nvarchar(15),
@@ -34,4 +37,6 @@ create table BattingStats (
     SH      int,
     SF      int,
     IBB     int,
+
+    constraint PK_BattingStats primary key (StatsID)
 );
