@@ -7,7 +7,7 @@ def getInsertOneYear(urlFrame, team, year):
     url = urlFrame + team + '/' + year + '.shtml'
     print(url)
     df = getBattingDF(url)
-    
+
     if df.empty:
         print(f"⚠️ No data for {team} in {year}")
         return ""
@@ -34,7 +34,7 @@ def getInsertBattingString(urlFrame, team, year):
     url = urlFrame + team + '/' + year + '.shtml'
     
     yearInsertList = []
-    while int(year) >= 2000:
+    while int(year) >= 2015:
         yearInsertList.append(getInsertOneYear(urlFrame, team, year))
         year = str(int(year)-1)
     
