@@ -1,3 +1,5 @@
+-- use db;
+
 drop table if exists BattingStats;
 
 
