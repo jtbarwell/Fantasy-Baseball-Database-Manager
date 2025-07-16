@@ -60,7 +60,7 @@ def getBattingDF(url):
                 })
 
         df = pd.DataFrame(rows)
-        time.sleep(5)
+        time.sleep(4)
         return df
 
     except Exception as e:
