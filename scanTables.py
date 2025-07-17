@@ -28,9 +28,9 @@ def getBattingDF(url):
             cols = row.find_all('td')
             if cols:
                 rows.append({
-                    'Player':   cols[0].text.strip(),
+                    'Player':   cols[0].text.strip("#*").replace("'", "''"),
                     'Age':      cols[1].text.strip(),
-                    'Pos':      cols[2].text.strip(),
+                    'Pos':      cols[2].text.strip("#*"),
                     'WAR':      cols[3].text.strip(),
                     'G':        cols[4].text.strip(),
                     'PA':       cols[5].text.strip(),
