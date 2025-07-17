@@ -1,3 +1,4 @@
+# -*- coding: <UTF-8> -*-
 import cloudscraper
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -7,10 +8,12 @@ from scanTables import getBattingDF
 
 def main():
     urlFrame = "https://www.baseball-reference.com/teams/"
-    # teamCodes = ['PHI', 'NYM', 'MIA', 'ATL', 'WSN', 'CHC', 'MIL', 'STL', 'CIN', 'PIT', 'LAD', 'SDP', 'SFG', 'ARI', 'COL', 'TOR', 'NYY', 'BOS', 'TBR', 'BAL', 'DET', 'MIN', 'CLE', 'KCR', 'CHW', 'HOU', 'SEA', 'TEX', 'LAA', 'ATH']
-    teamCodes = ['PHI']
+    teamCodes = ['PHI', 'NYM', 'MIA', 'ATL', 'WSN', 'CHC', 'MIL', 'STL', 'CIN', 'PIT', 'LAD', 'SDP', 'SFG', 'ARI', 'COL', 'TOR', 'NYY', 'BOS', 'TBR', 'BAL', 'DET', 'MIN', 'CLE', 'KCR', 'CHW', 'HOU', 'SEA', 'TEX', 'LAA', 'ATH']
+    # teamCodes = ['PHI']
     for team in teamCodes:
-        print(getInsertBattingString(urlFrame, team, '2025'))
+        stmt=getInsertBattingString(urlFrame, team, '2025')
+        with open('debug_output.html', 'w') as f:
+            f.write(stmt)
 
 
 if __name__ == "__main__":

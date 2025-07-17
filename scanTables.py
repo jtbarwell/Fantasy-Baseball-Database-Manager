@@ -1,3 +1,4 @@
+# -*- coding: <UTF-8> -*-
 import cloudscraper
 import pandas as pd
 from bs4 import BeautifulSoup
