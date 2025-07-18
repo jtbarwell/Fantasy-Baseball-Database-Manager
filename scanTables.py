@@ -19,11 +19,13 @@ def getBattingDF(url):
             with open('debug_output.html', 'w') as f:
                 f.write(response.text)
             print(" - Saved HTML to debug_output.html")
+            time.sleep(4)
             return pd.DataFrame()
 
         print("\n✅ Scraping result:")
-        
-        df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'G', 'PA', 'AB', 'R', 'H', '2B', '3B', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'BA', 'OBP', 'SLG', 'OPS', 'OPS+', 'rOBA', 'Rbat+', 'TB', 'GIDP', 'HBP', 'SH', 'SF', 'IBB'])
+        with open('test.txt', 'w', 'utf-8') as f:
+            f.write(roster_table.text)
+        df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'G', 'PA', 'AB', 'R', 'H', '[2B]', '[3B]', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'BA', 'OBP', 'SLG', 'OPS', '[OPS+]', 'rOBA', '[Rbat+]', 'TB', 'GIDP', 'HBP', 'SH', 'SF', 'IBB'])
         for row in roster_table.tbody.find_all('tr'):
             cols = row.find_all('td')
             if cols:
@@ -37,8 +39,8 @@ def getBattingDF(url):
                     'AB':       cols[6].text.strip(),
                     'R':        cols[7].text.strip(),
                     'H':        cols[8].text.strip(),
-                    '2B':       cols[9].text.strip(),
-                    '3B':       cols[10].text.strip(),
+                    '[2B]':     cols[9].text.strip(),
+                    '[3B]':     cols[10].text.strip(),
                     'HR':       cols[11].text.strip(),
                     'RBI':      cols[12].text.strip(),
                     'SB':       cols[13].text.strip(),
@@ -49,9 +51,9 @@ def getBattingDF(url):
                     'OBP':      cols[18].text.strip(),
                     'SLG':      cols[19].text.strip(),
                     'OPS':      cols[20].text.strip(),
-                    'OPS+':     cols[21].text.strip(),
+                    '[OPS+]':   cols[21].text.strip(),
                     'rOBA':     cols[22].text.strip(),
-                    'Rbat+':    cols[23].text.strip(),
+                    '[Rbat+]':  cols[23].text.strip(),
                     'TB':       cols[24].text.strip(),
                     'GIDP':     cols[25].text.strip(),
                     'HBP':      cols[26].text.strip(),
@@ -67,6 +69,7 @@ def getBattingDF(url):
     except Exception as e:
         print("\n❌ Error during scraping:")
         print(e)
+        time.sleep(4)
 
 
 

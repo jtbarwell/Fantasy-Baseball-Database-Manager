@@ -9,7 +9,7 @@ from scanTables import getBattingDF
 def main():
     urlFrame = "https://www.baseball-reference.com/teams/"
     teamCodes = ['PHI', 'NYM', 'MIA', 'ATL', 'WSN', 'CHC', 'MIL', 'STL', 'CIN', 'PIT', 'LAD', 'SDP', 'SFG', 'ARI', 'COL', 'TOR', 'NYY', 'BOS', 'TBR', 'BAL', 'DET', 'MIN', 'CLE', 'KCR', 'CHW', 'HOU', 'SEA', 'TEX', 'LAA', 'ATH']
-    # teamCodes = ['ARI']
+    # teamCodes = ['LAA']
     for team in teamCodes:
         stmt=getInsertBattingString(urlFrame, team, '2025')
         with open('insertStatements.sql', 'a', encoding="utf-8") as f:
