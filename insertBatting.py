@@ -3,11 +3,12 @@ import cloudscraper
 import pandas as pd
 from bs4 import BeautifulSoup
 from scanTables import getBattingDF
+from scanTables import getPitchingDF
 
-def getInsertOneYear(urlFrame, team, year):
+def getInsertOneYear(urlFrame, getDF, team, year):
     url = urlFrame + team + '/' + year + '.shtml'
     print(url)
-    df = getBattingDF(url)
+    df = getDF(url)
 
     if df.empty:
         print(f"⚠️ No data for {team} in {year}")
@@ -36,9 +37,19 @@ def getInsertBattingString(urlFrame, team, year):
     
     yearInsertList = []
     while int(year) >= 1990:
-        yearInsertList.append(getInsertOneYear(urlFrame, team, year))
+        yearInsertList.append(getInsertOneYear(urlFrame, getBattingDF, team, year))
         year = str(int(year)-1)
     
     return ''.join(yearInsertList)
 
+
+def getInsertPitchingString(urlFrame, team, year):
+    url = urlFrame + team + '/' + year + '.shtml'
+    
+    yearInsertList = []
+    while int(year) >= 1990:
+        yearInsertList.append(getInsertOneYear(urlFrame, getPitchingDF, team, year))
+        year = str(int(year)-1)
+    
+    return ''.join(yearInsertList)
 
