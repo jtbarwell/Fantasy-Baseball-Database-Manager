@@ -76,20 +76,24 @@ def getBattingDF(url):
 
 def getPitchingDF(url):
     try:
-        scraper = cloudscraper.create_scraper()
+        scraper = cloudscraper.create_scraper(browser={'custom': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
         response = scraper.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
 
 
-        roster_table = soup.find('table', {'id': 'players_standard_pitching'})
+        roster_table = soup.find('table', {'id': 'players_standard_batting'})
         rows = []
         if roster_table is None:
-            print(f"⚠️ No pitching table found at {url}")
+            print(f"⚠️ No batting table found at {url}")
+            with open('debug_output.html', 'w') as f:
+                f.write(response.text)
+            print(" - Saved HTML to debug_output.html")
+            time.sleep(4)
             return pd.DataFrame()
 
-
         print("\n✅ Scraping result:")
-        
+        with open('test.txt', 'w', 'utf-8') as f:
+            f.write(roster_table.text)
         df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'W', 'L', 'W-L%', 'ERA', 'G', 'GS', 'GF', 'CG', 'SHO', 'SV', 'IP', 'H', 'R', 'ER', 'HR', 'BB', 'IBB', 'SO', 'HBP', 'BK', 'WP', 'BF', 'ERA+', 'FIP', 'WHIP', 'H9', 'HR9', 'BB9', 'SO9', 'SO/BB'])
         for row in roster_table.tbody.find_all('tr'):
             cols = row.find_all('td')
@@ -136,6 +140,7 @@ def getPitchingDF(url):
 
     except Exception as e:
         print("\n❌ Error during scraping:")
+        time.sleep(4)
         print(e)
 
 
