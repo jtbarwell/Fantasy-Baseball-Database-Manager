@@ -4,6 +4,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from scanTables import getBattingDF
 from scanTables import getPitchingDF
+from scanTables import getFieldingDF
 
 def getInsertOneYear(urlFrame, getDF, table, team, year):
     url = urlFrame + team + '/' + year + '.shtml'
