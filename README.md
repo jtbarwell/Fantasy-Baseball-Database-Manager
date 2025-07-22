@@ -22,7 +22,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![project_license][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -31,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/jtbarwell/test-repo">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/Fantasy Baseball.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Baseball Database Scraper</h3>
