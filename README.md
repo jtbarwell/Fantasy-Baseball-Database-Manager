@@ -20,7 +20,6 @@
 -->
 [![Contributors][contributors-shield]][contributors-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -91,7 +90,7 @@
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
+* [![Python][Python]][Python-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
 * [![Angular][Angular.io]][Angular-url]
@@ -152,6 +151,9 @@ Project Link: [https://github.com/jtbarwell/test-repo](https://github.com/jtbarw
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/joshuabarwell
 [product-screenshot]: images/screenshot.png
+
+[Python-url]: https://python.org
+[Python]: https://img.shields.io/badge/python-295478?style=for-the-badge&logo=python&logoColor=white
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
