@@ -37,6 +37,7 @@
 
   <p align="center">
     This is the framework for getting data into a Baseball Statistics database
+    *** README.md is not done yet so it will not be accurate ***
     <br />
     <a href="https://github.com/jtbarwell/test-repo"><strong>Explore the docs »</strong></a>
     <br />
