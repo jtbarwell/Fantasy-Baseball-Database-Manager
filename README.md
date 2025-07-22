@@ -33,10 +33,11 @@
     <img src="images/Fantasy Baseball.png" alt="Logo" width="150" height="150">
   </a>
 
-<h3 align="center">Baseball Database Scraper</h3>
+<h3 align="center">Fantasy Baseball Database Manager</h3>
 
   <p align="center">
     This is the framework for getting data into a Baseball Statistics database <br />
+    Currently, it is just the web-scraping to get the database filled-in, however eventually it will become much more! <br />
     *** README.md is not done yet so it will not be accurate ***
     <br />
     <a href="https://github.com/jtbarwell/test-repo"><strong>Explore the docs »</strong></a>
