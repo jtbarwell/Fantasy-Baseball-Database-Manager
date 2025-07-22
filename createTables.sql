@@ -1,9 +1,7 @@
 use baseball;
 
 drop table if exists BattingStats;
-
-
-
+drop table if exists PitchingStats;
 
 
 create table BattingStats (
@@ -13,7 +11,7 @@ create table BattingStats (
     Player  nvarchar(150),
     Age     int,
     Pos     nvarchar(15),
-    WAR     decimal(2, 1),
+    WAR     float,
     G       int,
     PA      int,
     AB      int,
@@ -42,4 +40,46 @@ create table BattingStats (
     IBB     int,
 
     constraint PK_BattingStats primary key (StatsID)
+);
+
+create table PitchingStats(
+	StatsID int identity(1, 1),
+	Year    int,
+	Team    nvarchar(30),
+	Player  nvarchar(150),
+	Age     int,
+	Pos     nvarchar(15),
+	WAR     float,
+	W       int,
+	L       int,
+	[W-L%]  decimal(4, 3),
+	ERA     float,
+	G       int,
+	GS      int,
+	GF      int,
+	CG      int,
+	SHO     int,
+	SV      int,
+	IP      float,
+	H       int,
+	R       int,
+	ER      int,
+	HR      int,
+	BB      int,
+	IBB     int,
+	SO      int,
+	HBP     int,
+	BK      int,
+	WP      int,
+	BF      int,
+	[ERA+]  int,
+	FIP     float,
+	WHIP    float,
+	H9      float,
+	HR9     float,
+	BB9     float,
+	SO9     float,
+	[SO/BB] float,
+
+	constraint PK_PitchingStats primary key (StatsID)
 );
