@@ -92,7 +92,7 @@
 
 * [![Python][Python]][Python-url]
 * [![Pandas][Pandas]][Pandas-url]
-* [![Microsoft SQL Server](https://custom-icon-badges.demolab.com/badge/Microsoft%20SQL%20Server-CC2927?logo=mssqlserver-white&logoColor=white)][MSSQL-url]
+* [![Microsoft SQL Server][Microsoft SQL Server]][MSSQL-url]
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
