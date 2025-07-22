@@ -81,10 +81,10 @@ def getPitchingDF(url):
         soup = BeautifulSoup(response.text, 'html.parser')
 
 
-        roster_table = soup.find('table', {'id': 'players_standard_batting'})
+        roster_table = soup.find('table', {'id': 'players_standard_pitching'})
         rows = []
         if roster_table is None:
-            print(f"⚠️ No batting table found at {url}")
+            print(f"⚠️ No pitching table found at {url}")
             with open('debug_output.html', 'w') as f:
                 f.write(response.text)
             print(" - Saved HTML to debug_output.html")
@@ -94,18 +94,18 @@ def getPitchingDF(url):
         print("\n✅ Scraping result:")
         # with open('test.txt', 'w', 'utf-8') as f:
         #     f.write(roster_table.text)
-        df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'W', 'L', 'W-L%', 'ERA', 'G', 'GS', 'GF', 'CG', 'SHO', 'SV', 'IP', 'H', 'R', 'ER', 'HR', 'BB', 'IBB', 'SO', 'HBP', 'BK', 'WP', 'BF', 'ERA+', 'FIP', 'WHIP', 'H9', 'HR9', 'BB9', 'SO9', 'SO/BB'])
+        df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'W', 'L', '[W-L%]', 'ERA', 'G', 'GS', 'GF', 'CG', 'SHO', 'SV', 'IP', 'H', 'R', 'ER', 'HR', 'BB', 'IBB', 'SO', 'HBP', 'BK', 'WP', 'BF', '[ERA+]', 'FIP', 'WHIP', 'H9', 'HR9', 'BB9', 'SO9', '[SO/BB]'])
         for row in roster_table.tbody.find_all('tr'):
             cols = row.find_all('td')
             if cols:
                 rows.append({
-                    'Player':   cols[0].text.strip(),
+                    'Player':   cols[0].text.strip("#*").replace("'", "''"),
                     'Age':      cols[1].text.strip(),
-                    'Pos':      cols[2].text.strip(),
+                    'Pos':      cols[2].text.strip("#*"),
                     'WAR':      cols[3].text.strip(),
                     'W':        cols[4].text.strip(),
                     'L':        cols[5].text.strip(),
-                    'W-L%':     cols[6].text.strip(),
+                    '[W-L%]':   cols[6].text.strip(),
                     'ERA':      cols[7].text.strip(),
                     'G':        cols[8].text.strip(),
                     'GS':       cols[9].text.strip(),
@@ -125,14 +125,14 @@ def getPitchingDF(url):
                     'BK':       cols[23].text.strip(),
                     'WP':       cols[24].text.strip(),
                     'BF':       cols[25].text.strip(),
-                    'ERA+':     cols[26].text.strip(),
+                    '[ERA+]':   cols[26].text.strip(),
                     'FIP':      cols[27].text.strip(),
                     'WHIP':     cols[28].text.strip(),
                     'H9':       cols[29].text.strip(),
                     'HR9':      cols[30].text.strip(),
                     'BB9':      cols[31].text.strip(),
                     'SO9':      cols[32].text.strip(),
-                    'SO/BB':    cols[33].text.strip()
+                    '[SO/BB]':    cols[33].text.strip()
                 })
 
         df = pd.DataFrame(rows)

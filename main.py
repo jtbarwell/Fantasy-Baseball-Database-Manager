@@ -2,15 +2,15 @@
 import cloudscraper
 import pandas as pd
 from bs4 import BeautifulSoup
-from insertBatting import getInsertBattingString
-from insertBatting import getInsertPitchingString
+from scrapeWebsite import getInsertBattingString
+from scrapeWebsite import getInsertPitchingString
 
-from scanTables import getBattingDF
+from scanTables import getPitchingDF
 
 def main():
     urlFrame = "https://www.baseball-reference.com/teams/"
-    teamCodes = ['PHI', 'NYM', 'MIA', 'ATL', 'WSN', 'CHC', 'MIL', 'STL', 'CIN', 'PIT', 'LAD', 'SDP', 'SFG', 'ARI', 'COL', 'TOR', 'NYY', 'BOS', 'TBR', 'BAL', 'DET', 'MIN', 'CLE', 'KCR', 'CHW', 'HOU', 'SEA', 'TEX', 'LAA', 'ATH']
-    # teamCodes = ['LAA']
+    # teamCodes = ['PHI', 'NYM', 'MIA', 'ATL', 'WSN', 'CHC', 'MIL', 'STL', 'CIN', 'PIT', 'LAD', 'SDP', 'SFG', 'ARI', 'COL', 'TOR', 'NYY', 'BOS', 'TBR', 'BAL', 'DET', 'MIN', 'CLE', 'KCR', 'CHW', 'HOU', 'SEA', 'TEX', 'LAA', 'ATH']
+    teamCodes = ['LAA']
     for team in teamCodes:
         # stmt=getInsertBattingString(urlFrame, team, '2025')
         stmt=getInsertPitchingString(urlFrame, team, '2025')
