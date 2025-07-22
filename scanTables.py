@@ -136,6 +136,7 @@ def getPitchingDF(url):
                 })
 
         df = pd.DataFrame(rows)
+        time.sleep(4)
         return df
 
     except Exception as e:
