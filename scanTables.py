@@ -23,8 +23,8 @@ def getBattingDF(url):
             return pd.DataFrame()
 
         print("\n✅ Scraping result:")
-        with open('test.txt', 'w', 'utf-8') as f:
-            f.write(roster_table.text)
+        # with open('test.txt', 'w', 'utf-8') as f:
+        #     f.write(roster_table.text)
         df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'G', 'PA', 'AB', 'R', 'H', '[2B]', '[3B]', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'BA', 'OBP', 'SLG', 'OPS', '[OPS+]', 'rOBA', '[Rbat+]', 'TB', 'GIDP', 'HBP', 'SH', 'SF', 'IBB'])
         for row in roster_table.tbody.find_all('tr'):
             cols = row.find_all('td')
@@ -92,8 +92,8 @@ def getPitchingDF(url):
             return pd.DataFrame()
 
         print("\n✅ Scraping result:")
-        with open('test.txt', 'w', 'utf-8') as f:
-            f.write(roster_table.text)
+        # with open('test.txt', 'w', 'utf-8') as f:
+        #     f.write(roster_table.text)
         df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'W', 'L', 'W-L%', 'ERA', 'G', 'GS', 'GF', 'CG', 'SHO', 'SV', 'IP', 'H', 'R', 'ER', 'HR', 'BB', 'IBB', 'SO', 'HBP', 'BK', 'WP', 'BF', 'ERA+', 'FIP', 'WHIP', 'H9', 'HR9', 'BB9', 'SO9', 'SO/BB'])
         for row in roster_table.tbody.find_all('tr'):
             cols = row.find_all('td')
