@@ -92,6 +92,7 @@
 
 * [![Python][Python]][Python-url]
 * [![Pandas][Pandas]][Pandas-url]
+* [![Microsoft SQL Server][Microsoft SQL Server.com]][MSSQL-url]
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
@@ -153,6 +154,9 @@ Project Link: [https://github.com/jtbarwell/test-repo](https://github.com/jtbarw
 
 [Pandas]: https://img.shields.io/badge/pandas-140853?style=for-the-badge&logo=pandas&logoColor=white
 [Pandas-url]: https://pandas.pydata.org/
+
+[Microsoft SQL Server]: https://custom-icon-badges.demolab.com/badge/Microsoft%20SQL%20Server-CC2927?logo=mssqlserver-white&logoColor=white
+[MSSQL-url]: https://microsoft.com/en-ca/sql-server
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
