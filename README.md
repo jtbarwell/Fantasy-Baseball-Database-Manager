@@ -93,6 +93,7 @@
 * [![Python][Python]][Python-url]
 * [![Pandas][Pandas]][Pandas-url]
 * [![Microsoft SQL Server][Microsoft SQL Server]][MSSQL-url]
+* [![CSS][CSS]][CSS-url]
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
@@ -164,3 +165,5 @@ Project Link: [https://github.com/jtbarwell/test-repo](https://github.com/jtbarw
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 
+[CSS]: https://img.shields.io/badge/css-246fa6?style=for-the-badge&logo=css&logoColor=white
+[CSS-url]: https://www.w3.org/Style/CSS/Overview.en.html
