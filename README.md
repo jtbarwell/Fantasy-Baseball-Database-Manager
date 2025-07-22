@@ -36,13 +36,13 @@
 <h3 align="center">Baseball Database Scraper</h3>
 
   <p align="center">
-    This is the framework for getting data into a Baseball Statistics database
+    This is the framework for getting data into a Baseball Statistics database \
     *** README.md is not done yet so it will not be accurate ***
     <br />
     <a href="https://github.com/jtbarwell/test-repo"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/jtbarwell/test-repo">View Demo</a>
+    <a href="https://github.com/jtbarwell/test-repo">View Files</a>
     &middot;
     <a href="https://github.com/jtbarwell/test-repo/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
@@ -53,7 +53,7 @@
 
 
 <!-- TABLE OF CONTENTS -->
-<details>
+<!-- <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -76,7 +76,7 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
-</details>
+</details> -->
 
 
 
