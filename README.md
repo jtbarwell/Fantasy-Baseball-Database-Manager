@@ -124,7 +124,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- CONTACT -->
 ## Contact
 
-Your Name - jtbarwell@gmail.com
+Joshua Barwell (He/Him) - jtbarwell@gmail.com
 
 Project Link: [https://github.com/jtbarwell/test-repo](https://github.com/jtbarwell/test-repo)
 
