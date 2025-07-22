@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from scanTables import getBattingDF
 from scanTables import getPitchingDF
 
-def getInsertOneYear(urlFrame, getDF, team, year):
+def getInsertOneYear(urlFrame, getDF, table, team, year):
     url = urlFrame + team + '/' + year + '.shtml'
     print(url)
     df = getDF(url)
@@ -27,7 +27,7 @@ def getInsertOneYear(urlFrame, getDF, team, year):
                 if val == '':
                     val = 0
             values.append(str(val))
-        insertList.append(f"insert into BattingStats (Year, Team, {', '.join(df.columns)}) values ({int(year)}, '{team}', {', '.join(values)}); \n")
+        insertList.append(f"insert into {table} (Year, Team, {', '.join(df.columns)}) values ({int(year)}, '{team}', {', '.join(values)}); \n")
     sql = ''.join(insertList)
     return sql
 
@@ -37,7 +37,7 @@ def getInsertBattingString(urlFrame, team, year):
     
     yearInsertList = []
     while int(year) >= 1990:
-        yearInsertList.append(getInsertOneYear(urlFrame, getBattingDF, team, year))
+        yearInsertList.append(getInsertOneYear(urlFrame, getBattingDF, "BattingStats", team, year))
         year = str(int(year)-1)
     
     return ''.join(yearInsertList)
@@ -48,7 +48,7 @@ def getInsertPitchingString(urlFrame, team, year):
     
     yearInsertList = []
     while int(year) >= 1990:
-        yearInsertList.append(getInsertOneYear(urlFrame, getPitchingDF, team, year))
+        yearInsertList.append(getInsertOneYear(urlFrame, getPitchingDF, "PitchingStats", team, year))
         year = str(int(year)-1)
     
     return ''.join(yearInsertList)
