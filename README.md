@@ -83,10 +83,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -101,7 +99,6 @@
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- USAGE EXAMPLES -->
@@ -109,17 +106,13 @@
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+_For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 ### Top contributors:
 
 <a href="https://github.com/jtbarwell/test-repo/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=jtbarwell/test-repo" alt="contrib.rocks image" />
 </a>
-
-
 
 <!-- CONTACT -->
 ## Contact
