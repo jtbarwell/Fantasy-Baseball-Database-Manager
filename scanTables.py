@@ -16,15 +16,13 @@ def getBattingDF(url):
         rows = []
         if roster_table is None:
             print(f"⚠️ No batting table found at {url}")
-            with open('debug_output.html', 'w') as f:
+            with open('batting_debug_output.html', 'w') as f:
                 f.write(response.text)
-            print(" - Saved HTML to debug_output.html")
+            print(" - Saved HTML to batting_debug_output.html")
             time.sleep(4)
             return pd.DataFrame()
 
         print("\n✅ Scraping result:")
-        # with open('test.txt', 'w', 'utf-8') as f:
-        #     f.write(roster_table.text)
         df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'G', 'PA', 'AB', 'R', 'H', '[2B]', '[3B]', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'BA', 'OBP', 'SLG', 'OPS', '[OPS+]', 'rOBA', '[Rbat+]', 'TB', 'GIDP', 'HBP', 'SH', 'SF', 'IBB'])
         for row in roster_table.tbody.find_all('tr'):
             cols = row.find_all('td')
@@ -85,15 +83,13 @@ def getPitchingDF(url):
         rows = []
         if roster_table is None:
             print(f"⚠️ No pitching table found at {url}")
-            with open('debug_output.html', 'w') as f:
+            with open('pitching_debug_output.html', 'w') as f:
                 f.write(response.text)
-            print(" - Saved HTML to debug_output.html")
+            print(" - Saved HTML to pitching_debug_output.html")
             time.sleep(4)
             return pd.DataFrame()
 
         print("\n✅ Scraping result:")
-        # with open('test.txt', 'w', 'utf-8') as f:
-        #     f.write(roster_table.text)
         df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'W', 'L', '[W-L%]', 'ERA', 'G', 'GS', 'GF', 'CG', 'SHO', 'SV', 'IP', 'H', 'R', 'ER', 'HR', 'BB', 'IBB', 'SO', 'HBP', 'BK', 'WP', 'BF', '[ERA+]', 'FIP', 'WHIP', 'H9', 'HR9', 'BB9', 'SO9', '[SO/BB]'])
         for row in roster_table.tbody.find_all('tr'):
             cols = row.find_all('td')
@@ -149,7 +145,7 @@ def getPitchingDF(url):
 
 def getFieldingDF(url):
     try:
-        scraper = cloudscraper.create_scraper()
+        scraper = cloudscraper.create_scraper(browser={'custom': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
         response = scraper.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -158,25 +154,50 @@ def getFieldingDF(url):
         rows = []
         if roster_table is None:
             print(f"⚠️ No fielding table found at {url}")
+            with open('fielding_debug_output.html', 'w') as f:
+                f.write(response.text)
+            print(" - Saved HTML to fielding_debug_output.html")
+            time.sleep(4)
             return pd.DataFrame()
 
-
         print("\n✅ Scraping result:")
-        
-        df = pd.DataFrame(columns=['Player', 'Age', 'G', 'GS', 'CG', 'Inn', 'Ch', 'PO', 'A', 'E', 'DP', 'Fld%', 'Rtot', 'Rtot/yr', 'RF/9', 'lgRF9', 'PB', 'WP', 'SB', 'CS', 'CS%', 'Pick'])
+        df = pd.DataFrame(columns=['Player', 'Age', 'G', 'GS', 'CG', 'Inn', 'Ch', 'PO', 'A', 'E', 'DP', '[Fld%]', 'Rtot', '[Rtot/yr]', '[RF/9]', 'lgRF9', 'PB', 'WP', 'SB', 'CS', '[CS%]', 'Pick', 'Pos'])
         for row in roster_table.tbody.find_all('tr'):
             cols = row.find_all('td')
             if cols:
                 rows.append({
-                    'Player':   cols[0].text.strip(),
-                    
+                    'Player':    cols[0].text.strip("#*").replace("'", "''"),
+                    'Age':       cols[1].text.strip(),
+                    'G':         cols[2].text.strip(),
+                    'GS':        cols[3].text.strip(),
+                    'CG':        cols[4].text.strip(),
+                    'Inn':       cols[5].text.strip(),
+                    'Ch':        cols[6].text.strip(),
+                    'PO':        cols[7].text.strip(),
+                    'A':         cols[8].text.strip(),
+                    'E':         cols[9].text.strip(),
+                    'DP':        cols[10].text.strip(),
+                    '[Fld%]':    cols[11].text.strip(),
+                    'Rtot':      cols[12].text.strip(),
+                    '[Rtot/yr]': cols[13].text.strip(),
+                    '[RF/9]':    cols[14].text.strip(),
+                    'lgRF9':     cols[15].text.strip(),
+                    'PB':        cols[16].text.strip(),
+                    'WP':        cols[17].text.strip(),
+                    'SB':        cols[18].text.strip(),
+                    'CS':        cols[19].text.strip(),
+                    '[CS%]':     cols[20].text.strip(),
+                    'Pick':      cols[21].text.strip(),
+                    'Pos':       cols[22].text.strip("#*")
                 })
 
         df = pd.DataFrame(rows)
+        time.sleep(4)
         return df
 
     except Exception as e:
         print("\n❌ Error during scraping:")
+        time.sleep(4)
         print(e)
 
 
