@@ -53,3 +53,14 @@ def getInsertPitchingString(urlFrame, team, year):
     
     return ''.join(yearInsertList)
 
+
+def getInsertFieldingString(urlFrame, team, year):
+    url = urlFrame + team + '/' + year + '.shtml'
+    
+    yearInsertList = []
+    while int(year) >= 1990:
+        yearInsertList.append(getInsertOneYear(urlFrame, getFieldingDF, "FieldingStats", team, year))
+        year = str(int(year)-1)
+    
+    return ''.join(yearInsertList)
+
