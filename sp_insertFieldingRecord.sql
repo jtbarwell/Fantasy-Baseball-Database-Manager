@@ -35,7 +35,7 @@ BEGIN
     -- interfering with SELECT statements.
     SET NOCOUNT ON;
 
-    insert into FieldingStats 
+    insert into baseball.dbo.FieldingStats 
         (Year, Team, Player, Age, G, GS, CG, Inn, Ch, PO, A, E, DP, [Fld%], Rtot, [Rtot/yr], [RF/9], lgRF9, PB, WP, SB, CS, [CS%], Pick, Pos)
     values
         (@Year, @Team, @Player, @Age, @G, @GS, @CG, @Inn, @Ch, @PO, @A, @E, @DP, @Fld_pct, @Rtot, @Rtot_yr, @RF_9, @lgRF9, @PB, @WP, @SB, @CS, @CS_pct, @Pick, @Pos);

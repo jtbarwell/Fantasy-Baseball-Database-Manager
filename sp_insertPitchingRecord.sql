@@ -47,7 +47,7 @@ BEGIN
     SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-    insert into PitchingStats 
+    insert into baseball.dbo.PitchingStats 
         (Year, Team, Player, Age, Pos, WAR, W, L, [W-L%], ERA, G, GS, GF, CG, SHO, SV, IP, H, R, ER, HR, BB, IBB, SO, HBP, BK, WP, BF, [ERA+], FIP, WHIP, H9, HR9, BB9, SO9, [SO/BB])
     values
         (@Year, @Team, @Player, @Age, @Pos, @WAR, @W, @L, @W_L_pct, @ERA, @G, @GS, @GF, @CG, @SHO, @SV, @IP, @H, @R, @ER, @HR, @BB, @IBB, @SO, @HBP, @BK, @WP, @BF, @ERA_P, @FIP, @WHIP, @H9, @HR9, @BB9, @SO9, @SO_BB);

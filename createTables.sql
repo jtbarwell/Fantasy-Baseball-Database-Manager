@@ -8,10 +8,10 @@ drop table if exists FieldingStats;
 create table BattingStats (
     StatsID int identity(1, 1),
     Year    int,
-    Team    nvarchar(30),
-    Player  nvarchar(150),
+    Team    nvarchar(MAX),
+    Player  nvarchar(MAX),
     Age     int,
-    Pos     nvarchar(15),
+    Pos     nvarchar(MAX),
     WAR     float,
     G       int,
     PA      int,
@@ -46,10 +46,10 @@ create table BattingStats (
 create table PitchingStats(
 	StatsID int identity(1, 1),
 	Year    int,
-	Team    nvarchar(30),
-	Player  nvarchar(150),
+	Team    nvarchar(MAX),
+	Player  nvarchar(MAX),
 	Age     int,
-	Pos     nvarchar(15),
+	Pos     nvarchar(MAX),
 	WAR     float,
 	W       int,
 	L       int,
@@ -88,8 +88,8 @@ create table PitchingStats(
 create table FieldingStats(
 	StatsID 	int identity(1, 1),
 	Year    	int,
-	Team    	nvarchar(30),
-	Player		nvarchar(150),
+	Team    	nvarchar(MAX),
+	Player		nvarchar(MAX),
 	Age			int,
 	G			int,
 	GS			int,
@@ -111,7 +111,17 @@ create table FieldingStats(
 	CS			int,
 	[CS%]		float,
 	Pick		int,
-	Pos			nvarchar(30),
+	Pos			nvarchar(MAX),
 
 	constraint PK_FieldingStats primary key (StatsID)
 );
+
+
+
+
+
+
+
+
+
+

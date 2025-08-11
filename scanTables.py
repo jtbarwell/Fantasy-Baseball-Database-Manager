@@ -23,7 +23,7 @@ def getBattingDF(url):
             return pd.DataFrame()
 
         print("\n✅ Scraping result:")
-        df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'G', 'PA', 'AB', 'R', 'H', '[2B]', '[3B]', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'BA', 'OBP', 'SLG', 'OPS', '[OPS+]', 'rOBA', '[Rbat+]', 'TB', 'GIDP', 'HBP', 'SH', 'SF', 'IBB'])
+        df = pd.DataFrame(columns=['Player', 'Age', 'Pos', 'WAR', 'G', 'PA', 'AB', 'R', 'H', '[2B]', '[3B]', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'BA', 'OBP', 'SLG', 'OPS', 'OPS_P', 'rOBA', 'Rbat_P', 'TB', 'GIDP', 'HBP', 'SH', 'SF', 'IBB'])
         for row in roster_table.tbody.find_all('tr'):
             cols = row.find_all('td')
             if cols:
@@ -49,9 +49,9 @@ def getBattingDF(url):
                     'OBP':      cols[18].text.strip(),
                     'SLG':      cols[19].text.strip(),
                     'OPS':      cols[20].text.strip(),
-                    '[OPS+]':   cols[21].text.strip(),
+                    'OPS_P':    cols[21].text.strip(),
                     'rOBA':     cols[22].text.strip(),
-                    '[Rbat+]':  cols[23].text.strip(),
+                    'Rbat_P':   cols[23].text.strip(),
                     'TB':       cols[24].text.strip(),
                     'GIDP':     cols[25].text.strip(),
                     'HBP':      cols[26].text.strip(),
