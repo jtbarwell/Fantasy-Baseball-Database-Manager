@@ -3,19 +3,17 @@
 -- Create Date: <Create Date,,>
 -- Description: <Description,,>
 -- =============================================
-create PROCEDURE sp_insertBattingRecord
+create or alter PROCEDURE sp_insertBattingRecord
 	@battingStatJSON nvarchar(MAX)
 AS  
 BEGIN
     SET NOCOUNT ON;
 
-    DECLARE @json NVARCHAR(MAX) = CAST(@battingStatJSON AS nvarchar(max));
 
-
-    INSERT INTO baseball.dbo.BattingStats 
-        (Year, Team, Player, Age, Pos, WAR, G, PA, AB, R, H, [2B], [3B], HR, RBI, SB, CS, BB, SO, BA, OBP, SLG, OPS, [OPS+], rOBA, [Rbat+], TB, GIDP, HBP, SH, SF, IBB)
+    INSERT INTO BattingStats 
+        ([Year], Team, Player, Age, Pos, WAR, G, PA, AB, R, H, [2B], [3B], HR, RBI, SB, CS, BB, SO, BA, OBP, SLG, OPS, [OPS+], rOBA, [Rbat+], TB, GIDP, HBP, SH, SF, IBB)
     SELECT
-        TRY_CAST(Year AS int),
+        TRY_CAST([Year] AS int),
         Team,
         Player,
         TRY_CAST(Age AS int),
@@ -49,7 +47,7 @@ BEGIN
         TRY_CAST(IBB AS int)
     FROM OPENJSON(@battingStatJSON)
     WITH (
-        Year      nvarchar(10) '$.Year',
+        [Year]    nvarchar(10) '$.Year',
         Team      nvarchar(MAX) '$.Team',
         Player    nvarchar(MAX) '$.Player',
         Age       nvarchar(10) '$.Age',
@@ -60,8 +58,8 @@ BEGIN
         AB        nvarchar(10) '$.AB',
         R         nvarchar(10) '$.R',
         H         nvarchar(10) '$.H',
-        [2B]      nvarchar(10) '$.[2B]',
-        [3B]      nvarchar(10) '$.[3B]',
+        [2B]      nvarchar(10) '$."2B"',
+        [3B]      nvarchar(10) '$."3B"',
         HR        nvarchar(10) '$.HR',
         RBI       nvarchar(10) '$.RBI',
         SB        nvarchar(10) '$.SB',
@@ -82,4 +80,5 @@ BEGIN
         SF        nvarchar(10) '$.SF',
         IBB       nvarchar(10) '$.IBB'
     );
-END
+END;
+GO
