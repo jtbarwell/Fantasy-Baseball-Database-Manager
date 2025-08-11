@@ -13,7 +13,7 @@ def main():
     teamCodes = ['PHI', 'NYM', 'MIA', 'ATL', 'WSN', 'CHC', 'MIL', 'STL', 'CIN', 'PIT', 'LAD', 'SDP', 'SFG', 'ARI', 'COL', 'TOR', 'NYY', 'BOS', 'TBR', 'BAL', 'DET', 'MIN', 'CLE', 'KCR', 'CHW', 'HOU', 'SEA', 'TEX', 'LAA', 'ATH']
     # teamCodes = ['TOR']
     for team in teamCodes:
-        insertBatting(urlFrame, team, '2025')
+        insertBatting(urlFrame, team, '2024')
 
 if __name__ == "__main__":
     main()
