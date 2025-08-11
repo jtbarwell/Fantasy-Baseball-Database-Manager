@@ -3,9 +3,6 @@
 -- Create Date: <Create Date,,>
 -- Description: <Description,,>
 -- =============================================
-drop procedure if exists sp_insertBattingRecord;
-GO;
-
 CREATE PROCEDURE sp_insertBattingRecord
 	@Year	int,
 	@Team	nvarchar(30),

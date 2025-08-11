@@ -3,9 +3,6 @@
 -- Create Date: <Create Date,,>
 -- Description: <Description,,>
 -- =============================================
-drop procedure if exists sp_insertPitchingRecord;
-GO;
-
 CREATE PROCEDURE sp_insertPitchingRecord
 	@Year    int,
 	@Team    nvarchar(30),
@@ -51,7 +48,7 @@ BEGIN
 
     -- Insert statements for procedure here
     insert into PitchingStats 
-        (Player, Age, Pos, WAR, W, L, [W-L%], ERA, G, GS, GF, CG, SHO, SV, IP, H, R, ER, HR, BB, IBB, SO, HBP, BK, WP, BF, [ERA+], FIP, WHIP, H9, HR9, BB9, SO9, [SO/BB])
+        (Year, Team, Player, Age, Pos, WAR, W, L, [W-L%], ERA, G, GS, GF, CG, SHO, SV, IP, H, R, ER, HR, BB, IBB, SO, HBP, BK, WP, BF, [ERA+], FIP, WHIP, H9, HR9, BB9, SO9, [SO/BB])
     values
         (@Year, @Team, @Player, @Age, @Pos, @WAR, @W, @L, @W_L_pct, @ERA, @G, @GS, @GF, @CG, @SHO, @SV, @IP, @H, @R, @ER, @HR, @BB, @IBB, @SO, @HBP, @BK, @WP, @BF, @ERA_P, @FIP, @WHIP, @H9, @HR9, @BB9, @SO9, @SO_BB);
     

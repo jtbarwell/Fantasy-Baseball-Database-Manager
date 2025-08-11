@@ -113,5 +113,5 @@ create table FieldingStats(
 	Pick		int,
 	Pos			nvarchar(30),
 
-	constraint PK_PitchingStats primary key (StatsID)
+	constraint PK_FieldingStats primary key (StatsID)
 );

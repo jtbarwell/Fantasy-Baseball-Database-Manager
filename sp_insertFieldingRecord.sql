@@ -3,9 +3,6 @@
 -- Create Date: <Create Date,,>
 -- Description: <Description,,>
 -- =============================================
-drop procedure if exists sp_insertFieldingRecord;
-GO;
-
 CREATE PROCEDURE sp_insertFieldingRecord
 	@Year    	int,
 	@Team    	nvarchar(30),
@@ -38,7 +35,6 @@ BEGIN
     -- interfering with SELECT statements.
     SET NOCOUNT ON;
 
-    -- Insert statements for procedure here
     insert into FieldingStats 
         (Year, Team, Player, Age, G, GS, CG, Inn, Ch, PO, A, E, DP, [Fld%], Rtot, [Rtot/yr], [RF/9], lgRF9, PB, WP, SB, CS, [CS%], Pick, Pos)
     values
