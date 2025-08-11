@@ -51,7 +51,19 @@ def insertOneYear(urlFrame, getDF, table, team, year):
 
 
 def insertBatting(urlFrame, team, year):
-    while int(year) >= 1990:
+    while int(year) >= 2024:
         insertOneYear(urlFrame, getBattingDF, "Batting", team, year)
+        year = str(int(year)-1)
+
+
+def insertPitching(urlFrame, team, year):
+    while int(year) >= 1990:
+        insertOneYear(urlFrame, getBattingDF, "Pitching", team, year)
+        year = str(int(year)-1)
+
+
+def insertFielding(urlFrame, team, year):
+    while int(year) >= 1990:
+        insertOneYear(urlFrame, getBattingDF, "Fielding", team, year)
         year = str(int(year)-1)
     
