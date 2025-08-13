@@ -1,8 +1,8 @@
 use baseball;
 
-drop table if exists BattingStats;
-drop table if exists PitchingStats;
-drop table if exists FieldingStats;
+-- drop table if exists BattingStats;
+-- drop table if exists PitchingStats;
+-- drop table if exists FieldingStats;
 
 
 create table BattingStats (
