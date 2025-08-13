@@ -188,7 +188,7 @@ def getFieldingDF(url):
                     'CS':        cols[19].text.strip(),
                     '[CS%]':     cols[20].text.strip(),
                     'Pick':      cols[21].text.strip(),
-                    'Pos':       cols[22].text.strip("#*")
+                    'Pos':       cols[22].text.strip("#")
                 })
 
         df = pd.DataFrame(rows)
