@@ -1,8 +1,11 @@
 -- =============================================
--- Author:      <Author, sysname, Your Name>
--- Create Date: <Create Date,,>
--- Description: <Description,,>
+-- Author:      <Joshua Barwell, DESKTOP-IEKNRR8\SQLEXPRESS | baseball>
+-- Create Date: <2025-08-07>
+-- Description: <Stored procedure to insert data into the BattingStats table via JSON string>
 -- =============================================
+use [baseball];
+GO
+
 create or alter PROCEDURE sp_insertBattingRecord
 	@battingStatJSON nvarchar(MAX)
 AS  
@@ -13,38 +16,38 @@ BEGIN
     INSERT INTO BattingStats 
         ([Year], Team, Player, Age, Pos, WAR, G, PA, AB, R, H, [2B], [3B], HR, RBI, SB, CS, BB, SO, BA, OBP, SLG, OPS, [OPS+], rOBA, [Rbat+], TB, GIDP, HBP, SH, SF, IBB)
     SELECT
-        TRY_CAST([Year] AS int),
+        TRY_CAST([Year] 	AS int),
         Team,
         Player,
-        TRY_CAST(Age AS int),
+        TRY_CAST(Age 		AS int),
         Pos,
-        TRY_CAST(WAR AS float),
-        TRY_CAST(G AS int),
-        TRY_CAST(PA AS int),
-        TRY_CAST(AB AS int),
-        TRY_CAST(R AS int),
-        TRY_CAST(H AS int),
-        TRY_CAST([2B] AS int),
-        TRY_CAST([3B] AS int),
-        TRY_CAST(HR AS int),
-        TRY_CAST(RBI AS int),
-        TRY_CAST(SB AS int),
-        TRY_CAST(CS AS int),
-        TRY_CAST(BB AS int),
-        TRY_CAST(SO AS int),
-        TRY_CAST(BA AS decimal(4,3)),
-        TRY_CAST(OBP AS decimal(4,3)),
-        TRY_CAST(SLG AS decimal(4,3)),
-        TRY_CAST(OPS AS decimal(4,3)),
-        TRY_CAST(OPS_P AS int),
-        TRY_CAST(rOBA AS decimal(4,3)),
-        TRY_CAST(Rbat_P AS int),
-        TRY_CAST(TB AS int),
-        TRY_CAST(GIDP AS int),
-        TRY_CAST(HBP AS int),
-        TRY_CAST(SH AS int),
-        TRY_CAST(SF AS int),
-        TRY_CAST(IBB AS int)
+        TRY_CAST(WAR 		AS float),
+        TRY_CAST(G 			AS int),
+        TRY_CAST(PA 		AS int),
+        TRY_CAST(AB 		AS int),
+        TRY_CAST(R 			AS int),
+        TRY_CAST(H 			AS int),
+        TRY_CAST([2B]		AS int),
+        TRY_CAST([3B]		AS int),
+        TRY_CAST(HR 		AS int),
+        TRY_CAST(RBI 		AS int),
+        TRY_CAST(SB 		AS int),
+        TRY_CAST(CS 		AS int),
+        TRY_CAST(BB 		AS int),
+        TRY_CAST(SO 		AS int),
+        TRY_CAST(BA 		AS decimal(4,3)),
+        TRY_CAST(OBP 		AS decimal(4,3)),
+        TRY_CAST(SLG 		AS decimal(4,3)),
+        TRY_CAST(OPS 		AS decimal(4,3)),
+        TRY_CAST(OPS_P 		AS int),
+        TRY_CAST(rOBA 		AS decimal(4,3)),
+        TRY_CAST(Rbat_P 	AS int),
+        TRY_CAST(TB 		AS int),
+        TRY_CAST(GIDP 		AS int),
+        TRY_CAST(HBP		AS int),
+        TRY_CAST(SH 		AS int),
+        TRY_CAST(SF 		AS int),
+        TRY_CAST(IBB 		AS int)
     FROM OPENJSON(@battingStatJSON)
     WITH (
         [Year]    nvarchar(10) '$.Year',
@@ -58,8 +61,8 @@ BEGIN
         AB        nvarchar(10) '$.AB',
         R         nvarchar(10) '$.R',
         H         nvarchar(10) '$.H',
-        [2B]      nvarchar(10) '$."2B"',
-        [3B]      nvarchar(10) '$."3B"',
+        [2B]      nvarchar(10) '$."[2B]"',
+        [3B]      nvarchar(10) '$."[3B]"',
         HR        nvarchar(10) '$.HR',
         RBI       nvarchar(10) '$.RBI',
         SB        nvarchar(10) '$.SB',
