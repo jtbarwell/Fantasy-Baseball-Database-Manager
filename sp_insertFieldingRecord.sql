@@ -14,7 +14,7 @@ BEGIN
 
 
     INSERT INTO FieldingStats 
-        ([Year], Team, Player, Age, Pos, G, GS, CG, Inn, Ch, PO, A, E, DP, [Fld%], Rtot, [Rtot/yr], [RF/9], lgRF9, PB, WP, SB, CS, [CS%], Pick))
+        ([Year], Team, Player, Age, Pos, G, GS, CG, Inn, Ch, PO, A, E, DP, [Fld%], Rtot, [Rtot/yr], [RF/9], lgRF9, PB, WP, SB, CS, [CS%], Pick)
     SELECT
         TRY_CAST([Year]  	AS int),
         Team,
