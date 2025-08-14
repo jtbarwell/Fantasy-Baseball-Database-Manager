@@ -14,7 +14,7 @@ def main():
     # teamCodes = ['TOR']
     for team in teamCodes:
         # insertBatting(urlFrame, team, '2025') # done
-        # insertPitching(urlFrame, team, '2025')
+        insertPitching(urlFrame, team, '2024')
         # insertFielding(urlFrame, team, '2025')
         pass
 

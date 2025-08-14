@@ -18,15 +18,7 @@ def insertOneYear(urlFrame, getDF, table, team, year):
     df["Year"] = year
     df["Team"] = team
     
-    column_order = [
-        "Year", "Team", "Player", "Age", "Pos", 
-        "WAR", "G", "PA", "AB", "R", "H", 
-        "[2B]", "[3B]", "HR", "RBI", 
-        "SB", "CS", "BB", "SO", "BA", 
-        "OBP", "SLG", "OPS", "OPS_P", "rOBA", "Rbat_P", 
-        "TB", "GIDP", "HBP", "SH", "SF", "IBB"
-    ]
-    df = df[[col for col in column_order if col in df.columns]]
+    
     df = df.astype(object)
     df_json = df.to_json(orient='records')
     # print(df_json)
@@ -58,12 +50,12 @@ def insertBatting(urlFrame, team, year):
 
 def insertPitching(urlFrame, team, year):
     while int(year) >= 1990:
-        insertOneYear(urlFrame, getBattingDF, "Pitching", team, year)
+        insertOneYear(urlFrame, getPitchingDF, "Pitching", team, year)
         year = str(int(year)-1)
 
 
 def insertFielding(urlFrame, team, year):
     while int(year) >= 1990:
-        insertOneYear(urlFrame, getBattingDF, "Fielding", team, year)
+        insertOneYear(urlFrame, getFieldingDF, "Fielding", team, year)
         year = str(int(year)-1)
     
